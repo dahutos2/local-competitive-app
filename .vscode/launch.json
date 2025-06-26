@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // ターゲット フレームワークを変更した場合は、プログラム パスを更新するようにしてください。
-            "program": "${workspaceFolder}/my-competitive-app/code-analysis-server/CodeAnalysisServer/bin/Debug/net8.0/CodeAnalysisServer.dll",
+            "program": "${workspaceFolder}/code-analysis-server/CodeAnalysisServer/bin/Debug/net8.0/CodeAnalysisServer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/my-competitive-app/code-analysis-server/CodeAnalysisServer",
+            "cwd": "${workspaceFolder}/code-analysis-server/CodeAnalysisServer",
             "stopAtEntry": false,
             // ASP.NET Core の起動時に Web ブラウザーの起動を有効にします。詳細については、次を参照してください: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {

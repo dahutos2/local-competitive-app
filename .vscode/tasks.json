@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/my-competitive-app/code-analysis-server/CodeAnalysisServer/CodeAnalysisServer.csproj",
+                "${workspaceFolder}/code-analysis-server/CodeAnalysisServer/CodeAnalysisServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/my-competitive-app/code-analysis-server/CodeAnalysisServer/CodeAnalysisServer.csproj",
+                "${workspaceFolder}/code-analysis-server/CodeAnalysisServer/CodeAnalysisServer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/my-competitive-app/code-analysis-server/CodeAnalysisServer/CodeAnalysisServer.csproj"
+                "${workspaceFolder}/code-analysis-server/CodeAnalysisServer/CodeAnalysisServer.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
