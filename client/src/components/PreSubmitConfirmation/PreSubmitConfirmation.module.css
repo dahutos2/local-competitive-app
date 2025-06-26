@@ -1,0 +1,86 @@
+/* 全体のスタイリング */
+.codeResult {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* 状態ごとのスタイリング */
+.codeResult--error {
+    border-color: #e74c3c;
+    background-color: #fdecea;
+}
+
+.codeResult--failure {
+    border-color: #e67e22;
+    background-color: #fff5e6;
+}
+
+.codeResult--success {
+    border-color: #2ecc71;
+    background-color: #eafaf1;
+}
+
+/* 判定結果のスタイリング */
+.judgeResult {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.statusIcon {
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+/* ボックス内のスタイリング */
+.resultRow {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.label {
+    flex: 0 0 100px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.content {
+    flex: 1;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    color: #34495e;
+}
+
+/* エラー詳細 */
+.errorMessages {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fdecea;
+    border-left: 4px solid #e74c3c;
+    border-radius: 6px;
+    color: #c0392b;
+    font-size: 0.95rem;
+}
+
+/* ヒントエリア */
+.hint {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff8d1;
+    border-left: 4px solid #ffeb99;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #856404;
+}

@@ -1,0 +1,15 @@
+.timerContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.timerDisplay {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.timerWarning {
+    color: red;
+}

@@ -1,0 +1,132 @@
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.loading {
+    font-size: 1.5em;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.resultContainer {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.overallResult {
+    background-color: #eafaf1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #b2d8b2;
+}
+
+.testCaseResults {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+}
+
+.testCaseResult {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ececec;
+}
+
+.testCaseResult:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.resultHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.resultSuccess {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.resultFailure {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.resultError {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+.resultRow {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+.label {
+    flex: 0 0 120px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.content {
+    flex: 1;
+    white-space: pre-wrap;
+    /* 改行を適用 */
+    word-wrap: break-word;
+    /* 長い文字列を折り返す */
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f9f9f9;
+    padding: 8px;
+    border-radius: 6px;
+    margin-left: 10px;
+    color: #34495e;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button {
+    padding: 14px 30px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: #27ae60;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover:not(:disabled) {
+    background-color: #1e8449;
+    transform: translateY(-3px);
+}
+
+.button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}

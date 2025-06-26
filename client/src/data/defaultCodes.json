@@ -1,0 +1,4 @@
+{
+    "csharp": "using System;\n\npublic class Program {\n    public static void Main() {\n        string input = Console.ReadLine();\n        Console.WriteLine(input);\n    }\n}",
+    "typescript": "const input = require('fs').readFileSync(0, 'utf8').trim() as string;\nconsole.log(input);"
+}

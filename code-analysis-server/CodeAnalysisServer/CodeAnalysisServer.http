@@ -1,0 +1,6 @@
+@CodeAnalysisServer_HostAddress = http://localhost:6000
+
+GET {{CodeAnalysisServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
