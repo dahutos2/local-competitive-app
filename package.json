@@ -9,11 +9,12 @@
     "client:dev": "cd client && npm run dev",
     "client:build": "cd client && npm run build",
     "client:release": "cd client && npm run preview",
-    "analysis:dev": "cd code-analysis-server/CodeAnalysisServer && dotnet run",
-    "analysis:build": "cd code-analysis-server/CodeAnalysisServer && dotnet build -c Release",
-    "analysis:release": "cd code-analysis-server/CodeAnalysisServer && dotnet run -c Release",
+    "analysis:dev": "cd code-analysis-server/CodeAnalysisServer && dotnet build --no-restore --nologo && dotnet run --no-build --no-restore --nologo",
+    "analysis:build": "cd code-analysis-server/CodeAnalysisServer && dotnet build --no-restore --nologo -c Release",
+    "analysis:release": "cd code-analysis-server/CodeAnalysisServer && dotnet build --no-restore --nologo -c Release && dotnet run --no-build --no-restore --nologo -c Release",
+    "setup": "npm i && cd client && npm i && cd ../code-analysis-server/CodeAnalysisServer && dotnet restore",
     "dev": "concurrently \"npm run analysis:dev\" \"npm run server:dev\" \"npm run client:dev\"",
-    "build": "npm run server:build && npm run client:build && npm run analysis:build",
+    "build": "npm run analysis:build && npm run server:build && npm run client:build",
     "release": "concurrently \"npm run analysis:release\" \"npm run server:release\" \"npm run client:release\""
   },
   "dependencies": {

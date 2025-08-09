@@ -60,16 +60,9 @@ git clone https://github.com/dahutos2/local-competitive-app.git
 cd local-competitive-app
 
 # 2. 依存関係
-npm install            # ルート（Express & スクリプト群）
-cd client && npm install   # フロント
-cd ..
+npm run setup
 
-# 3. .NET 依存を復元
-cd code-analysis-server/CodeAnalysisServer
-dotnet restore
-cd ../../
-
-# 4. 開発モード同時起動（React / Express / Roslyn API）
+# 3. 開発モード同時起動（React / Express / Roslyn API）
 npm run dev
 # ├─ http://localhost:3000 : Vite Dev Server
 # ├─ http://localhost:4000 : API サーバ
