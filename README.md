@@ -16,10 +16,10 @@
 local-competitive-app/
 ├─ package.json           # ルート：API/Build スクリプト集約
 ├─ tsconfig.json
-├─ server/                # Node.js + Express (コード実行・判定)
-│   ├─ server.ts
-│   ├─ runCode.ts
-│   └─ types.ts
+├─ server/src/            # Node.js + Express (コード実行・判定)
+│   ├─ index.ts
+│   ├─ types.ts
+│   └─ ...
 ├─ code-analysis-server/  # ASP.NET Core + Roslyn (補完・診断 API)
 │   └─ CodeAnalysisServer/
 │       ├─ Controllers/
@@ -31,8 +31,8 @@ local-competitive-app/
 │   │   └─ data/
 │   |   └─ ...
 │   └─ public/
-├─ temp/                  # 一時ビルド/実行ファイル
-└─ results/               # 提出結果ログ
+├─ logs/                  # ログファイル
+└─ var/                   # 一時ファイル/提出結果
 ```
 
 ## 主な機能

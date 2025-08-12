@@ -1,4 +1,3 @@
-// server/types.ts
 export type TaskMode = 'task' | 'practice';
 export type LangOption = 'csharp' | 'typescript';
 export type OutputStatus = 'error' | 'failure' | 'success';
@@ -6,7 +5,7 @@ export type OutputStatus = 'error' | 'failure' | 'success';
 // テストケース
 export interface TestCase {
     input: string;
-    expectedOutput: string;
+    output: string;
     isPublic: boolean;
 }
 
@@ -38,4 +37,25 @@ export class CommandError extends Error {
         this.stderr = stderr;
         Object.setPrototypeOf(this, CommandError.prototype);
     }
+}
+
+// キュー & 進捗API用
+export type JobStatus = 'queued' | 'running' | 'succeeded' | 'failed';
+
+export interface RunRequestPayload {
+    language: LangOption;
+    code: string;
+    testCases: TestCase[];
+    userId: string;
+    isSubmit?: boolean;
+}
+
+export interface JobProgress {
+    jobId: string;
+    status: JobStatus;
+    progress: number;               // 0..100
+    message?: string;
+    result?: TestCaseResult[];      // 成功時のみ（isSubmit:true の場合は空配列）
+    error?: string;                 // 失敗時のみ
+    updatedAt: number;              // epoch ms
 }

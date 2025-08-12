@@ -1,11 +1,72 @@
 :root {
-    --primary-color: #007bff;
-    --primary-hover: #0056b3;
-    --secondary-color: #6c757d;
-    --secondary-hover: #5a6268;
-    --disabled-color: grey;
-    --background-color: #f8f9fa;
-    --text-color: #333;
-    --font-family: 'Arial', sans-serif;
-    --error-color: red;
+    /* Brand & semantic colors */
+    --brand: #00ada0;
+    --brand-contrast: #0a3d39;
+
+    --bg: #f8f9fa;
+    --fg: #1f2937;
+    --muted: #6b7280;
+
+    --card: #ffffff;
+    --line: #e5e7eb;
+
+    --ok: #23a46e;
+    --bad: #e34b4b;
+    --warn: #e68a19;
+
+    --code-bg: #0b0e12;
+    --code-fg: #e6edf3;
+
+    /* Buttons */
+    --primary-color: var(--brand);
+    --primary-hover: #009388;
+
+    --secondary-color: #4a5d73;
+    --secondary-hover: #3d4e62;
+
+    --disabled-color: #a0a7b4;
+
+    /* Typography & layout */
+    --font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --text-color: var(--fg);
+    --background-color: var(--bg);
+    --error-color: var(--bad);
+
+    /* Spacing scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+    --space-8: 40px;
+
+    /* Radius & shadow */
+    --radius: 10px;
+    --radius-lg: 12px;
+    --radius-pill: 999px;
+    --shadow: 0 6px 24px rgba(0, 0, 0, .12);
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, .06);
+
+    /* Component helpers */
+    --badge-bg: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0e1217;
+        --fg: #e5e7eb;
+        --muted: #a3a6ad;
+
+        --card: #141b22;
+        --line: #25303b;
+
+        --primary-hover: #00bdb0;
+
+        --secondary-color: #5b6e85;
+        --secondary-hover: #4c5d71;
+
+        --badge-bg: #0f1720;
+    }
 }

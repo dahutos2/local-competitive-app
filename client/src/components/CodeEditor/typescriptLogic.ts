@@ -15,6 +15,15 @@ export function setupTypeScriptDefaults(monaco: typeof monacoEditor) {
         module: monaco.languages.typescript.ModuleKind.ESNext,
         jsx: monaco.languages.typescript.JsxEmit.React,
     });
+
+    monaco.languages.typescript.typescriptDefaults.addExtraLib(
+        `
+        declare var require: { (name: string): any; };
+        declare var module: any;
+        declare module 'fs' { const x: any; export = x; }
+        `,
+        'ts:node-shims.d.ts'
+    );
 }
 
 /**

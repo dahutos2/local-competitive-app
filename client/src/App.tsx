@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import type { Config, TaskMode } from './utils/types';
+import type { Config, DisqualifyReason, TaskMode } from './utils/types';
 import tasksData from './data/tasks.json';
 import practiceTasksData from './data/practiceTasks.json';
 import Timer from './components/Timer';
@@ -8,6 +8,12 @@ import CompletionScreen from './components/CompletionScreen';
 import Login from './components/Login';
 import styles from './App.module.css';
 import './styles/globals.css';
+
+const DEFAULT_RULES: DisqualifyReason[] = [
+  'copy_outside_editor',
+  'paste_into_editor',
+  'time_up',
+];
 
 function App() {
   const [disqualified, setDisqualified] = useState(false);
@@ -29,24 +35,28 @@ function App() {
   }, []);
 
   const currentTask = mode === 'task' ? tasksData[config?.taskIndex ?? 0] : practiceTasksData[0];
+  const defaultLang = config?.defaultLang ?? "csharp";
+  const activeRules =
+    config?.disqualificationRules?.length ? config.disqualificationRules : DEFAULT_RULES;
 
   /**
    * 失格処理をまとめた関数
    * - stateが変わるたびに再生成されないよう useCallback を使用
    */
-  const handleDisqualification = useCallback(() => {
+  const handleDisqualification = useCallback((reason: DisqualifyReason) => {
     if (userId && mode === 'task' && !completed) {
       setDisqualified(true);
       fetch('/api/disqualify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId }),
+        body: JSON.stringify({ userId, reason }),
       });
     }
   }, [userId, mode, completed]);
 
   // コピー操作が行われたときに失格
   useEffect(() => {
+    if (!activeRules.includes('copy_outside_editor')) return;
     const handleCopy = (e: ClipboardEvent) => {
       // もしコピーがMonacoEditor（.monaco-editor）内で発生した場合は失格にしない
       const target = e.target as HTMLElement | null;
@@ -56,31 +66,34 @@ function App() {
       }
 
       // それ以外（Monaco以外の場所でのコピー）は失格とする
-      handleDisqualification();
+      handleDisqualification('copy_outside_editor');
     };
 
     document.addEventListener('copy', handleCopy);
     return () => {
       document.removeEventListener('copy', handleCopy);
     };
-  }, [handleDisqualification]);
+  }, [activeRules, handleDisqualification]);
 
   // MonacoEditor から発行されるカスタムイベント 'monaco-editor-paste' を監視
   useEffect(() => {
+    if (!activeRules.includes('paste_into_editor')) return;
     const handleMonacoPaste = () => {
-      handleDisqualification();
+      handleDisqualification('paste_into_editor');
     };
 
     window.addEventListener('monaco-editor-paste', handleMonacoPaste);
     return () => {
       window.removeEventListener('monaco-editor-paste', handleMonacoPaste);
     };
-  }, [handleDisqualification]);
+  }, [activeRules, handleDisqualification]);
 
   const handleTimeUp = () => {
-    setDisqualified(true);
     setRemainingTime(0);
-    handleDisqualification();
+    if (!activeRules.includes('time_up')) return;
+
+    setDisqualified(true);
+    handleDisqualification('time_up');
   };
 
   const switchModeToTask = () => {
@@ -172,6 +185,7 @@ function App() {
         task={currentTask}
         userId={userId}
         mode={mode}
+        defaultLang={defaultLang}
         switchModeToTask={switchModeToTask}
         onComplete={() => setCompleted(true)}
       />

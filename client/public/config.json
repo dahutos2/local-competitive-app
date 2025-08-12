@@ -1,3 +1,5 @@
 {
-    "taskIndex": 3
+    "taskIndex": 3,
+    "defaultLang": "typescript",
+    "disqualificationRules": ["copy_outside_editor", "paste_into_editor", "time_up"]
 }

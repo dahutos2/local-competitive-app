@@ -1,15 +1,33 @@
 @import './variables.css';
 
-/* リセットCSS */
+/* Normalize-ish */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
+    color-scheme: light dark;
 }
 
 body {
     background-color: var(--background-color);
+    color: var(--text-color);
     font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+/* Base containers (legacy support) */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-6);
+}
+
+/* Type */
+.title {
+    text-align: center;
     color: var(--text-color);
 }
 
@@ -18,43 +36,45 @@ pre {
     word-wrap: break-word;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+/* Accessibility: visible focus */
+:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--brand) 65%, white);
+    outline-offset: 2px;
+    border-radius: 6px;
 }
 
-.title {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: var(--text-color);
+/* Scrollbar (WebKit) */
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
 }
 
-.disqualified {
-    color: var(--error-color);
-    font-size: 1.2em;
-    margin-bottom: 20px;
+*::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--brand) 45%, transparent);
+    border-radius: 8px;
 }
 
-.timer {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Quick Fixのデザイン */
+/* Monaco quick fix sizing (kept) */
 .monaco-editor .context-view .action-widget {
-    font-size: 7px;
+    font-size: 12px;
 }
 
 .monaco-editor .context-view .action-widget .monaco-list-rows .monaco-list-row.action {
-    width: auto;
-    min-width: 300px;
+    min-width: 320px;
 }
 
 .monaco-editor .context-view .action-widget .monaco-list-rows .monaco-list-row.action .title {
     color: inherit;
     text-align: left;
-    display: inline-block;
     margin: 0 auto;
+}
+
+/* Misc legacy classes */
+.disqualified {
+    color: var(--error-color);
+}
+
+.timer {
+    text-align: center;
+    margin-bottom: var(--space-5);
 }
