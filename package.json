@@ -18,7 +18,7 @@
     "release": "concurrently \"npm run analysis:release\" \"npm run server:release\" \"npm run client:release\""
   },
   "dependencies": {
-    "axios": "^1.7.9",
+    "axios": "^1.11.0",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
